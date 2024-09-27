@@ -2,6 +2,7 @@ import Home from "./assets/pages/home";
 import Login from "./assets/pages/login";
 import Register from "./assets/pages/register";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./assets/componentStyles/common.css";
 function App() {
 
   return (
