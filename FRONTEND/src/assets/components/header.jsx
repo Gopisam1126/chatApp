@@ -1,10 +1,13 @@
 import Navbar from "./navbar";
+import "../componentStyles/header.css";
+
 function Header() {
     return <>
-        <h1>Header</h1>
-        <nav>
-            <Navbar/>
-        </nav>
+        <section className="header-main-sec">
+            <nav className="nav-sec">
+                <Navbar/>
+            </nav>
+        </section>
     </>
 }
 
