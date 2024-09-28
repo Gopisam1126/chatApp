@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    /* color pallte 1 */
+
+     --c-p1-primary: #16423C;
+     --c-p1-ps: #6A9C89;
+     --c-p1-ss: #C4DAD2;
+     --c-p1-sec: #E9EFEC;
+
+    /* color pallet dark */
+
+     --c-p2-primary: #1A3636;
+     --c-p2-ps: #40534C;
+     --c-p2-ss: #677D6A;
+     --c-p2-sec: #D6BD98;
+
+    /* font sizes */
+
+    /* Headings */
+     --f-s-h1: 6rem;
+     --f-s-h2: 4.5rem;
+     --f-s-h3: 3.75rem;
+     --f-s-h4: 3rem;
+     --f-s-h5: 2.25rem;
+
+    /* List */
+     -f-s-ul: 1.25rem;
+     --f-s-li: 1.25rem;
+
+    /* paragraph & nav */
+     --f-s-p: 1.5rem;
+     --f-s-nav: 1.5rem;
+
+    /* span */
+     --f-s-span: 1rem;
+
+    /* Paddings */
+     --p-main-left: 10vw;
+     --p-main-right: 10vw;
+     --p-main-top: 5rem;
+     --p-main-bottom: 5rem;
+
+     --p-ts-top: 1.2rem;
+     --p-ts-bottom: 1.2rem;
+     --p-ts-left: 0.8vw;
+     --p-ts-right: 0.8vw;
+
+    /* margins */
+     --m-main-left: 10vw;
+     --m-main-right: 10vw;
+     --m-main-top: 5rem;
+     --m-main-bottom: 5rem;
+
+     --m-ts-top: 1.2rem;
+     --m-ts-bottom: 1.2rem;
+     --m-ts-left: 0.8vw;
+     --m-ts-right: 0.8vw;
+
+     -m-ns-left: 1.5rem;
+
+    /* Font Family */
+
+    --f-f-primary: "Roboto Condensed", sans-serif;
+    --f-f-secondary: "Raleway", system-ui;
+
+}
+.logo {
+    width: 12vw;
+    height: 2.5rem;
+}
+.register-main-sec {
+    display: flex;
+    background-color: var(--c-p1-primary);
+    padding: 2rem 10vw 5rem 10vw;
+    font-family: var(--f-f-secondary);
+}
+.illus-container {
+    position: relative;
+    left: -2rem;
+    top: 4rem;
+}
+.illustration {
+    width: 35vw;
+    height: 35rem;
+}
+.left-container {
+    width: 18vw !important;
+}
+.right-container {
+    background-color: var(--c-p1-sec);
+    padding: 2rem 5vw 2rem 20vw;
+    border-radius: 10px;
+}
+.register-head {
+    color: var(--c-p1-ps);
+}
+.form-container {
+    position: relative;
+    margin-top: 3rem;
+    width: 40vw;
+}
+.visibility-icon {
+    position: absolute;
+    left: 17vw;
+    top: 9.5rem;
+    cursor: pointer;
+}
+input:not(.usermail, .register-btn) {
+    margin-top: 3rem;
+}
+input:not(.register-btn) {
+    border: 0.7px solid #16423C;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    width: 20vw;
+    padding: 0.3rem 0.5vw;
+    font-size: var(--f-s-span);
+}
+input:focus {
+    outline: none;
+}
+.register-btn {
+    border: 0.1px solid transparent;
+    border-radius: 3px;
+    background-color: var(--c-p1-ps);
+    color: var(--c-p1-ss);
+    font-size: var(--f-s-p);
+    padding: 0.5rem 0.7vw;
+    margin: 2rem 0vw;
+    width: 10vw;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.register-btn:hover {
+    background-color: var(--c-p1-primary);
+}
+.terms-of-use {
+    font-size: var(--f-s-span);
+    opacity: 0.7;
+    margin-top: 1.2rem;
+}
+.tns-link {
+    color: var(--c-p1-ps);
+    text-decoration: none;
+    margin-left: 0.4vw;
+}
+.s-o-container {
+    display: flex;
+    align-items: center;
+}
+.s-o-hr {
+    width: 6.5vw;
+}
+.sign-up-options {
+    margin: 0 0.5vw;
+    opacity: 0.6;
+}
+.signin-with-icons {
+    margin-top: 1.5rem;
+    transform: translateX(19%);
+}
+.s-o-link {
+    color: #16423C;
+    transition: all 0.2s ease-in-out;
+}
+.s-o-l-g:hover, .s-o-l-fb:hover {
+    color: var(--c-p1-ps);
+}
