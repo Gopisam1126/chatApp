@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    /* color pallte 1 */
+
+     --c-p1-primary: #16423C;
+     --c-p1-ps: #6A9C89;
+     --c-p1-ss: #C4DAD2;
+     --c-p1-sec: #E9EFEC;
+
+    /* color pallet dark */
+
+     --c-p2-primary: #1A3636;
+     --c-p2-ps: #40534C;
+     --c-p2-ss: #677D6A;
+     --c-p2-sec: #D6BD98;
+
+    /* font sizes */
+
+    /* Headings */
+     --f-s-h1: 6rem;
+     --f-s-h2: 4.5rem;
+     --f-s-h3: 3.75rem;
+     --f-s-h4: 3rem;
+     --f-s-h5: 2.25rem;
+
+    /* List */
+     -f-s-ul: 1.25rem;
+     --f-s-li: 1.25rem;
+
+    /* paragraph & nav */
+     --f-s-p: 1.5rem;
+     --f-s-nav: 1.5rem;
+
+    /* span */
+     --f-s-span: 1rem;
+
+    /* Paddings */
+     --p-main-left: 10vw;
+     --p-main-right: 10vw;
+     --p-main-top: 5rem;
+     --p-main-bottom: 5rem;
+
+     --p-ts-top: 1.2rem;
+     --p-ts-bottom: 1.2rem;
+     --p-ts-left: 0.8vw;
+     --p-ts-right: 0.8vw;
+
+    /* margins */
+     --m-main-left: 10vw;
+     --m-main-right: 10vw;
+     --m-main-top: 5rem;
+     --m-main-bottom: 5rem;
+
+     --m-ts-top: 1.2rem;
+     --m-ts-bottom: 1.2rem;
+     --m-ts-left: 0.8vw;
+     --m-ts-right: 0.8vw;
+
+     -m-ns-left: 1.5rem;
+
+    /* Font Family */
+
+    --f-f-primary: "Roboto Condensed", sans-serif;
+    --f-f-secondary: "Raleway", system-ui;
+
+}
+
+.login-main-sec {
+    display: flex;
+    background-color: var(--c-p1-primary);
+}
+.logo {
+    width: 12vw;
+    height: 2.5rem;
+}
