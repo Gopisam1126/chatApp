@@ -67,4 +67,5 @@
 .chat-main-sec {
     display: flex;
     gap: 1.2vw;
+    padding: 5rem 5vw;
 }

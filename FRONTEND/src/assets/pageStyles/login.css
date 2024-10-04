@@ -73,3 +73,22 @@
     width: 12vw;
     height: 2.5rem;
 }
+.login {
+    text-align: center;
+    transform: translateX(-25%);
+}
+.lv-i {
+    position: absolute;
+    left: 17vw;
+    top: 8rem;
+    cursor: pointer;
+}
+.login-btn {
+    transform: translateX(50%);
+}
+.login-hr-2 {
+    width: 7vw;
+}
+.login-with-icons  {
+    transform: translateX(17%);
+}

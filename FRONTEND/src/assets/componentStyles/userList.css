@@ -64,3 +64,8 @@
     --f-f-secondary: "Raleway", system-ui;
 
 }
+
+.userlist-main-sec {
+    font-family: var(--f-f-secondary);
+    color: var(--c-p1-sec);
+}

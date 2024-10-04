@@ -1,35 +1,59 @@
-import "../pageStyles/login.css";
 import { Link } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
-function Login() {
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import "../pageStyles/register.css";
+import "../pageStyles/login.css";
+import { useState } from "react";
+function Register() {
+
+    const [isShowing, setIsShowing] = useState(false);
+
+    function showPass() {
+        setIsShowing(!isShowing);
+    }
+
     return <>
-        <section className="login-main-sec">
+        <section className="register-main-sec">
             <div className="left-container">
                 <img src="\images\logo-no-background.png" alt="logo" className="logo" />
+                <div className="illus-container">
+                    <img src="\images\illus.png" alt="illustration" className="illustration" />
+                </div>
             </div>
             <div className="right-container">
+                <h5 className="register-head login">
+                    LOGIN
+                </h5>
                 <div className="form-container">
                     <form>
                         <input type="text" name="username" id="username" className="username" placeholder="User Name" required /><br />
-                        <Link to="/resetpass">
-                            <span className="frgt-pass">
-                                Forgot Password
-                            </span>
-                        </Link><br />
-                        <input type="password" name="pass" id="pass" className="pass" placeholder="Password" required /><br />
-                        <input type="submit" value="LOGIN" className="login-btn" />
+                        <div className="visibility-icon lv-i" onClick={showPass}>
+                            {
+                                isShowing ? <VisibilityOffIcon style={{color: "#6A9C89"}}/> : <VisibilityIcon style={{color: "#6A9C89"}}/>
+                            }
+                        </div>
+                        <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required /><br />
+                        <input type="submit" value="LOGIN" className="register-btn login-btn" />
 
-                        <hr />
+                        <div className="s-o-container">
+                            <hr className="s-o-hr s-o-hr1"/>
+                            <span className="sign-up-options">Login Using</span>
+                            <hr className="s-o-hr s-o-hr2 login-hr-2"/>
+                        </div>
 
-                        <span>Sign in With</span>
-
-                        <div className="signin-with-icons">
-                            <Link to="/googleauth">
-                                <GoogleIcon/>
+                        <div className="signin-with-icons login-with-icons">
+                            <Link to="/googleauth" className="s-o-link s-o-l-g">
+                                <GoogleIcon style={{
+                                    fontSize: "2rem",
+                                    marginRight: "1.5vw"
+                                }}/>
                             </Link>
-                            <Link to="/fbauth">
-                                <FacebookIcon/>
+                            <Link to="/fbauth" className="s-o-link s-o-l-fb">
+                                <FacebookIcon style={{
+                                    fontSize: "2rem"
+                                }}/>
                             </Link>
                         </div>
 
@@ -40,4 +64,4 @@ function Login() {
     </>
 }
 
-export default Login;
+export default Register;
