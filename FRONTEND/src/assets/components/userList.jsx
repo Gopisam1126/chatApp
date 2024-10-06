@@ -13,7 +13,12 @@ function UserList() {
             </div>
             <hr className="cai-ulb-sep" />
             <div className="ul-body-container">
-                
+                <ul>
+                    <li className="user-list-li">
+                        <img src="" alt="" className="user-p-img" />
+                        <span className="user-chat-name">John Doe</span>
+                    </li>
+                </ul>
             </div>
         </section>
     </>
