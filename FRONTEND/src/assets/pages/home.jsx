@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Footer from "../components/footer";
+// import Footer from "../components/footer";
 import CreateArea from "../components/createArea";
 import "../pageStyles/home.css"
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
         <section className="home-main-section">
             <Header/>
             <CreateArea/>
-            <Footer/>
+            {/* <Footer/> */}
         </section>
     </>
 }

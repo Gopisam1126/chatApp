@@ -66,6 +66,6 @@
 }
 .chat-main-sec {
     display: flex;
-    gap: 30vw;
+    gap: 2rem;
     /* padding: 5rem 5vw; */
 }

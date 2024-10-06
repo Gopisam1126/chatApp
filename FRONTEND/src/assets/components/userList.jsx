@@ -11,7 +11,10 @@ function UserList() {
                     }}/>
                 </div>
             </div>
-            <hr className="chat-b-hr" />
+            <hr className="cai-ulb-sep" />
+            <div className="ul-body-container">
+                
+            </div>
         </section>
     </>
 }

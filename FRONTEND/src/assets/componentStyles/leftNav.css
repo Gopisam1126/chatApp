@@ -62,33 +62,20 @@
 
     --f-f-primary: "Roboto Condensed", sans-serif;
     --f-f-secondary: "Raleway", system-ui;
+    --color: rgb(46 46 46);
 
 }
-
-.userlist-main-sec {
-    font-family: var(--f-f-secondary);
-    /* background-color: var(--c-p1-sec); */
-    color: var(--c-p1-sec);
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    margin-left: 1.45vw;
-    padding: 1.2rem 2vw;
-    width: 25vw;
-}
-.chat-a-icon {
+.left-nav-section {
+    position: fixed;
     display: flex;
-    align-items: center;
-    gap: 10vw;
-    margin-top: 1.2rem;
+    flex-direction: column;
+    background-color: var(--color);
+    height: 100%;
+    padding: 3rem 0.5vw;
 }
-.icon-container {
-    width: 2vw;
-    height: 2rem;
-    padding: 0.2rem 0.2vw;
-    background-color: var(--c-p1-sec);
-    border-radius: 5px;
+.lef-nav-icons:not(.l-n-i1) {
+    margin: 3rem 0.5vw;
 }
-.cai-ulb-sep {
-    margin-top: 1.2rem;
+.lef-nav-icons{
+    transition: all 0.2s ease-in-out;
 }
