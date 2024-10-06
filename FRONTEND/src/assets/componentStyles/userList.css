@@ -34,6 +34,10 @@
     /* span */
      --f-s-span: 1rem;
 
+    /* chat list font */
+    --f-s-cl: 2rem;
+    --f-s-us: 0.8rem;
+
     /* Paddings */
      --p-main-left: 10vw;
      --p-main-right: 10vw;
@@ -69,7 +73,7 @@
     font-family: var(--f-f-secondary);
     /* background-color: var(--c-p1-sec); */
     color: var(--c-p1-sec);
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(65, 65, 65, 0.7);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     margin-left: 1.45vw;
@@ -91,4 +95,38 @@
 }
 .cai-ulb-sep {
     margin-top: 0.8rem;
+}
+.user-list-li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: var(--c-p1-sec);
+    font-weight: 600;
+    margin: 2rem 0vw;
+    cursor: pointer;
+    padding: 0.4rem 0.4vw;
+    text-wrap: nowrap;
+    overflow-x: hidden;
+}
+.user-list-li:hover{
+    background-color: rgba(55, 55, 55, 0.5);
+}
+.img-name-c {
+    display: flex;
+    align-items: center;
+}
+.user-p-img {
+    height: 3rem;
+    width: 3vw;
+    border-radius: 50%;
+    margin-right: 1.2vw;
+}
+.user-chat-name {
+    font-size: var(--f-s-span);
+}
+.time-stamp-msg {
+    font-size: var(--f-s-us);
+    font-weight: 400;
+    margin-left: 5vw;
 }
