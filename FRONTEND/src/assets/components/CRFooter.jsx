@@ -9,24 +9,28 @@ function CRFooter() {
             <div className="main-cr-footer-c">
                 <MoreHorizIcon style={{
                     color: "#E9EFEC",
-                    marginRight: "0.9vw"
+                    marginRight: "0.9vw",
+                    cursor: "pointer"
                 }}/>
                 <SentimentSatisfiedAltOutlinedIcon style={{
                     color: "#E9EFEC",
-                    marginRight: "0.9vw",
+                    marginRight: "2.1vw",
+                    cursor: "pointer"
                 }}/>
                 <div className="input-container">
                     <form>
-                        <input type="text" className="msg-input" />
+                        <input type="text" className="msg-input" placeholder="Type your message" />
                     </form>
                 </div>
                 <MicOutlinedIcon style={{
                     color: "#E9EFEC",
                     marginRight: "0.9vw",
+                    cursor: "pointer"
                 }}/>
                 <div className="send-icon-c">
                     <SendOutlinedIcon style={{
-                    color: "#E9EFEC"
+                    color: "#E9EFEC",
+                    cursor: "pointer"
                 }}/>
                 </div>
             </div>

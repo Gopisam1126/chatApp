@@ -102,16 +102,14 @@
 .visibility-icon {
     position: absolute;
     left: 17vw;
-    top: 9.5rem;
+    top: 12.5rem;
     cursor: pointer;
 }
 /* input:not(.usermail, .register-btn) {
     margin-top: 3rem;
 } */
-.username, .pass {
+.username, .pass, .usermail {
     margin-top: 3rem;
-}
-input:not(.register-btn) {
     border: 0.7px solid #16423C;
     border-top: none;
     border-left: none;
@@ -121,7 +119,7 @@ input:not(.register-btn) {
     padding: 0.3rem 0.5vw;
     font-size: var(--f-s-span);
 }
-input:focus {
+.usermail:focus, .pass:focus, .username:focus {
     outline: none;
 }
 .register-btn {

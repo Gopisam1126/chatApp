@@ -71,13 +71,25 @@
 .main-cr-footer-c {
     position: fixed;
     bottom: 0.2rem;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(96, 96, 96, 0.3);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    padding: 0.5rem 1.2vw;
+    padding: 0.8rem 1.2vw;
     left: 28.5vw;
     width: 100%;
 }
 .msg-input {
-    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: var(--c-p1-sec);
+    width: 53vw;
+    border-radius: 20px;
+    height: 2rem;
+    padding: 0.4rem 0.8vw;
+    font-size: var(--f-s-span);
+    margin-right: 2.1vw;
+}
+.msg-input:focus {
+    outline: none;
 }
