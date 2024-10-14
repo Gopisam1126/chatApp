@@ -8,10 +8,12 @@ function CRFooter() {
         <section className="cr-footer-sec">
             <div className="main-cr-footer-c">
                 <MoreHorizIcon style={{
-                    color: "#E9EFEC"
+                    color: "#E9EFEC",
+                    marginRight: "0.9vw"
                 }}/>
                 <SentimentSatisfiedAltOutlinedIcon style={{
-                    color: "#E9EFEC"
+                    color: "#E9EFEC",
+                    marginRight: "0.9vw",
                 }}/>
                 <div className="input-container">
                     <form>
@@ -19,7 +21,8 @@ function CRFooter() {
                     </form>
                 </div>
                 <MicOutlinedIcon style={{
-                    color: "#E9EFEC"
+                    color: "#E9EFEC",
+                    marginRight: "0.9vw",
                 }}/>
                 <div className="send-icon-c">
                     <SendOutlinedIcon style={{
