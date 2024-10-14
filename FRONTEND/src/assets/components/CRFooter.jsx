@@ -7,16 +7,24 @@ function CRFooter() {
     return <>
         <section className="cr-footer-sec">
             <div className="main-cr-footer-c">
-                <MoreHorizIcon/>
-                <SentimentSatisfiedAltOutlinedIcon/>
+                <MoreHorizIcon style={{
+                    color: "#E9EFEC"
+                }}/>
+                <SentimentSatisfiedAltOutlinedIcon style={{
+                    color: "#E9EFEC"
+                }}/>
                 <div className="input-container">
                     <form>
                         <input type="text" className="msg-input" />
                     </form>
                 </div>
-                <MicOutlinedIcon/>
+                <MicOutlinedIcon style={{
+                    color: "#E9EFEC"
+                }}/>
                 <div className="send-icon-c">
-                    <SendOutlinedIcon/>
+                    <SendOutlinedIcon style={{
+                    color: "#E9EFEC"
+                }}/>
                 </div>
             </div>
         </section>
