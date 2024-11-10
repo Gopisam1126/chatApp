@@ -1,8 +1,13 @@
+/* eslint-disable no-unused-vars */
 import UserList from "./userList";
 import ChatRoom from "./chatRoom";
 import LeftNav from "./leftNav";
 import "../componentStyles/createArea.css";
+import { useState } from "react";
+import NotSelected from "./not_selected";
 function CreateArea() {
+    const [isSelected, setIsSelected] = useState(false);
+
     return <>
         <section className="chat-main-sec">
             <section className="left-nav-main-sec">
@@ -12,7 +17,9 @@ function CreateArea() {
                 <UserList/>
             </section>
             <section className="right-main-sec">
-                <ChatRoom/>
+                {
+                    isSelected ? <ChatRoom/> : <NotSelected/>
+                }
             </section>
         </section>
     </>

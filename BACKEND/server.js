@@ -27,6 +27,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.post("/register", (req, res) => {
+    const username = req.body.username;
+    console.log(username);
+})
+
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
 })
