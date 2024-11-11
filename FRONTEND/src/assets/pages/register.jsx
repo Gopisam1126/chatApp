@@ -4,13 +4,42 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import "../pageStyles/register.css";
+import axios from "axios";
 import { useState } from "react";
 function Register() {
 
     const [isShowing, setIsShowing] = useState(false);
-
+    const [rFormData, setRFormData] = useState({
+        usermail: "",
+        username: "",
+        pass: ""
+    });
+    
     function showPass() {
         setIsShowing(!isShowing);
+    }
+    
+    function handleInputChange(e) {
+        setRFormData({...rFormData, [e.target.name]: e.target.value});
+    }
+    // console.log(rFormData);
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData();
+        // console.log(data);
+        Object.keys(rFormData).forEach((key) => {
+            data.append(key, rFormData[key]);
+        });
+
+        try {
+            const response = await axios.post("http://localhost:3000/register", rFormData , {
+                'Content-Type': 'application/json',
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return <>
@@ -26,15 +55,15 @@ function Register() {
                     Register Account
                 </h5>
                 <div className="form-container">
-                    <form>
-                        <input type="email" name="usermail" id="usermail" className="usermail" placeholder="Email" required /><br />
-                        <input type="text" name="username" id="username" className="username" placeholder="User Name" required /><br />
+                    <form onSubmit={handleSubmit}>
+                        <input type="email" name="usermail" id="usermail" className="usermail" placeholder="Email" required onChange={handleInputChange} /><br />
+                        <input type="text" name="username" id="username" className="username" placeholder="User Name" required onChange={handleInputChange} /><br />
                         <div className="visibility-icon" onClick={showPass}>
                             {
                                 isShowing ? <VisibilityOffIcon style={{color: "#6A9C89"}}/> : <VisibilityIcon style={{color: "#6A9C89"}}/>
                             }
                         </div>
-                        <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required /><br />
+                        <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required onChange={handleInputChange} /><br />
                         <p className="terms-of-use">
                             By Registering You Agree to our
                             <Link to="/t-and-s" className="tns-link">
