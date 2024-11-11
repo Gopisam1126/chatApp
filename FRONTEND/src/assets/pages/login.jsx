@@ -6,12 +6,39 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import "../pageStyles/register.css";
 import "../pageStyles/login.css";
 import { useState } from "react";
+import axios from "axios";
 function Register() {
 
     const [isShowing, setIsShowing] = useState(false);
+    const [loginData, setLoginData] = useState({
+        username: "",
+        pass: ""
+    });
+
+    function handleInputChange(e) {
+        setLoginData({...loginData, [e.target.name]: e.target.value});
+    }
 
     function showPass() {
         setIsShowing(!isShowing);
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const data = new FormData();
+        // console.log(data);
+        Object.keys(loginData).forEach((key) => {
+            data.append(key, loginData[key]);
+        });
+
+        try {
+            const response = await axios.post("http://localhost:3000/login", loginData , {
+                'Content-Type': 'application/json',
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return <>
@@ -27,14 +54,14 @@ function Register() {
                     LOGIN
                 </h5>
                 <div className="form-container">
-                    <form>
-                        <input type="text" name="username" id="username" className="username" placeholder="User Name" required /><br />
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" name="username" id="username" className="username" placeholder="User Name" required onChange={handleInputChange} /><br />
                         <div className="visibility-icon lv-i" onClick={showPass}>
                             {
                                 isShowing ? <VisibilityOffIcon style={{color: "#6A9C89"}}/> : <VisibilityIcon style={{color: "#6A9C89"}}/>
                             }
                         </div>
-                        <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required /><br />
+                        <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required onChange={handleInputChange} /><br />
                         <input type="submit" value="LOGIN" className="register-btn login-btn" />
 
                         <div className="s-o-container">

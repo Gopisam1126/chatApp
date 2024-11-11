@@ -28,6 +28,45 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.post("/login", async (req, res) => {
+    const email = req.body.usermail;
+    // console.log(email);
+
+    const userPass = req.body.pass;
+    // console.log(userPass);
+
+    const username = req.body.username;
+    // console.log(username);
+    
+    
+    try {
+        const verRes = await pg.query("SELECT * FROM users WHERE username = $1", [username]);
+        console.log(verRes);
+
+        if (verRes.rows.length > 0) {
+            const user = verRes.rows[0];
+            const hashedPass = user.password;
+
+            bcrypt.compare(userPass, hashedPass, (err, result) => {
+                if (err) {
+                    console.log("Error Comparing Password", err);
+                } else {
+                    if (result) {
+                        res.render("home.jsx");
+                    } else {
+                        res.send("Incorrect Password")
+                    }
+                }
+            });
+        } else {
+            res.send("user Not Found")
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 app.post("/register", async (req, res) => {
     const email = req.body.usermail;
     console.log("email: ", email);
@@ -40,7 +79,9 @@ app.post("/register", async (req, res) => {
 
     try {
         const check = await pg.query("SELECT * FROM users WHERE email = $1", [email]);
-        if (check.rows > 0) {
+        console.log(check);
+        
+        if (check.rows.length > 0) {
             res.redirect("/login");
         } else {
             bcrypt.hash(pass, 20, async (err, hash) => {
@@ -53,9 +94,9 @@ app.post("/register", async (req, res) => {
                         email
                     ]);
                     const user = insertQ.rows[0];
-                    req.login(user, (err) => {
-                        console.log("success");
-                    });
+                    console.log(user);
+                    
+                    res.status(201).send({ message: "User registered successfully", user });
                 }
             })
         }
