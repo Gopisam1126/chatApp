@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -8,6 +8,8 @@ import "../pageStyles/login.css";
 import { useState } from "react";
 import axios from "axios";
 function Register() {
+
+    const navigate = useNavigate();
 
     const [isShowing, setIsShowing] = useState(false);
     const [loginData, setLoginData] = useState({
@@ -22,11 +24,12 @@ function Register() {
     function showPass() {
         setIsShowing(!isShowing);
     }
+    console.log(loginData);
 
     async function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData();
-        // console.log(data);
+        console.log(data);
         Object.keys(loginData).forEach((key) => {
             data.append(key, loginData[key]);
         });
@@ -36,8 +39,12 @@ function Register() {
                 'Content-Type': 'application/json',
             });
             console.log(response);
+            if (response.status === 200) {
+                navigate(response.data.redirectUrl);
+            }
         } catch (error) {
             console.log(error);
+            alert(error.response?.data || "An error occurred");
         }
     }
 
