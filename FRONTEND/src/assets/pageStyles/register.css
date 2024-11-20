@@ -122,6 +122,17 @@
 .usermail:focus, .pass:focus, .username:focus {
     outline: none;
 }
+
+.choose_pro_pic {
+    padding-top: 1.5rem;
+}
+.req {
+    position: relative;
+    top: 0.4rem;
+    font-size: 2rem;
+    color: red;
+}
+
 .register-btn {
     border: 0.1px solid transparent;
     border-radius: 3px;

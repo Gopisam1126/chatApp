@@ -7,7 +7,7 @@ import "../pageStyles/register.css";
 import axios from "axios";
 import { useState } from "react";
 function Register() {
-
+    const [pro_pic, setProPic] = useState(null);
     const [isShowing, setIsShowing] = useState(false);
     const [rFormData, setRFormData] = useState({
         usermail: "",
@@ -22,19 +22,24 @@ function Register() {
     function handleInputChange(e) {
         setRFormData({...rFormData, [e.target.name]: e.target.value});
     }
+
+    function handleFileChange(e) {
+        setProPic(e.target.files[0])
+    }
     // console.log(rFormData);
 
     async function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData();
         // console.log(data);
+        data.append('pro_pic', pro_pic)
         Object.keys(rFormData).forEach((key) => {
             data.append(key, rFormData[key]);
         });
 
         try {
-            const response = await axios.post("http://localhost:3000/register", rFormData , {
-                'Content-Type': 'application/json',
+            const response = await axios.post("http://localhost:3000/register", data , {
+                'Content-Type': 'multipart/form-data',
             });
             console.log(response);
         } catch (error) {
@@ -64,6 +69,10 @@ function Register() {
                             }
                         </div>
                         <input type={`${isShowing ? 'text' : 'password'}`} name="pass" id="pass" className="pass" placeholder="Password" required onChange={handleInputChange} /><br />
+                        <div className="choose_pro_pic">
+                            <label htmlFor="pro_pic">Choose Profile Picture <span className="req">*</span> : </label>
+                            <input type="file" accept="image/*" name="pro_pic" className="pro_pic" required onChange={handleFileChange}/>
+                        </div>
                         <p className="terms-of-use">
                             By Registering You Agree to our
                             <Link to="/t-and-s" className="tns-link">

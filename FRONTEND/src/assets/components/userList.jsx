@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import "../componentStyles/userlist.css";
 import AddIcon from '@mui/icons-material/Add';
+import axios from "axios";
 function UserList() {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        async function getUsers() {
+            try {
+                const usersRes = await axios.get("http://localhost:3000/chats");
+                setUsers(usersRes.data);
+            } catch (error) {
+                console.log("Error Fetching Data", error);
+            }
+        }
+        getUsers();
+    }, [])
+
     return <>
         <section className="userlist-main-sec">
             <div className="chat-a-icon">
@@ -14,62 +31,21 @@ function UserList() {
             <hr className="cai-ulb-sep" />
             <div className="ul-body-container">
                 <ul>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p1.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">John Doe</span>
-                        </div>
-                        <span className="time-stamp-msg">6:45 pm</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p2.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Alex Varghese</span>
-                        </div>
-                        <span className="time-stamp-msg">6:25 pm</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p3.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Arjun KP</span>
-                        </div>
-                        <span className="time-stamp-msg">3:05 pm</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p4.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Ananthu P</span>
-                        </div>
-                        <span className="time-stamp-msg">7:45 am</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p5.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Abhijith</span>
-                        </div>
-                        <span className="time-stamp-msg">2:01 pm</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p6.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Aswin Vijay</span>
-                        </div>
-                        <span className="time-stamp-msg">1:31 pm</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p7.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Shabeeh</span>
-                        </div>
-                        <span className="time-stamp-msg">8:05 am</span>
-                    </li>
-                    <li className="user-list-li">
-                        <div className="img-name-c">
-                            <img src="\images\p8.webp" alt="p1" className="user-p-img" />
-                            <span className="user-chat-name">Manavalan</span>
-                        </div>
-                        <span className="time-stamp-msg">12:45 pm</span>
-                    </li>
+                    {
+                        users.length > 0 ? (
+                            users.map((user) => (
+                                <li className="user-list-li" key={user.id}>
+                                    <div className="img-name-c">
+                                        <img src={`data:${user.mimeType};base64,${user.file}`} alt={`p${user.id}`} className="user-p-img" />
+                                        <span className="user-chat-name">{user.username}</span>
+                                    </div>
+                                    <span className="time-stamp-msg">6:45 pm</span>
+                                </li>
+                            ))
+                        ) : (
+                            <p>No Chats Available</p>
+                        )
+                    }
                 </ul>
             </div>
         </section>
